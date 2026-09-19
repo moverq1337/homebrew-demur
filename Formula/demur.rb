@@ -8,11 +8,11 @@ class Demur < Formula
   depends_on :macos
 
   on_arm do
-    url "https://cp.moverq.dev/dl/demurd-darwin-arm64"
+    url "https://demur.moverq.dev/dl/demurd-darwin-arm64"
     sha256 "1dfdfbe51e3d325ff2a5c3494064f1bb0bb6741185965801af2a0566db4485ed"
   end
   on_intel do
-    url "https://cp.moverq.dev/dl/demurd-darwin-amd64"
+    url "https://demur.moverq.dev/dl/demurd-darwin-amd64"
     sha256 "6ab50df0a6fc4cbc653502896029626339f5347ef7e0f1a513ba775bfefe11f4"
   end
 
