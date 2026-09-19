@@ -1,6 +1,6 @@
 cask "demur" do
   version "0.1.0"
-  sha256 "016f668a694f960060c781bb0374654a6ee096a05f247f753c021d83e9625fd9"
+  sha256 "7346203deb3633e7083f109ac509fe0d73558e5633e29268be70028358c7aea5"
 
   url "https://cp.moverq.dev/dl/Demur.zip"
   name "Demur"

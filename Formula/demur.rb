@@ -9,11 +9,11 @@ class Demur < Formula
 
   on_arm do
     url "https://cp.moverq.dev/dl/demurd-darwin-arm64"
-    sha256 "69b4b930b917e40707495ac499184148801942af5a8c86f32bbf748a3e4ef0a0"
+    sha256 "1dfdfbe51e3d325ff2a5c3494064f1bb0bb6741185965801af2a0566db4485ed"
   end
   on_intel do
     url "https://cp.moverq.dev/dl/demurd-darwin-amd64"
-    sha256 "0c32b99d9e7c06fb57f90c9e80fae645537ca511cea8493c145e4f13fd70be48"
+    sha256 "6ab50df0a6fc4cbc653502896029626339f5347ef7e0f1a513ba775bfefe11f4"
   end
 
   def install
