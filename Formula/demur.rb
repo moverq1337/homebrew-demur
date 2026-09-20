@@ -1,20 +1,21 @@
 class Demur < Formula
   desc "Демон и CLI личного VPN Demur"
   homepage "https://github.com/moverq1337/demur"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
-  depends_on "sing-box"
-  depends_on :macos
-
-  on_arm do
+  # url и sha256 внутри on_arm/on_intel brew style не принимает
+  # (FormulaAudit/ComponentsOrder), поэтому выбор архитектуры обычным if.
+  if Hardware::CPU.arm?
     url "https://demur.moverq.dev/dl/demurd-darwin-arm64"
-    sha256 "1dfdfbe51e3d325ff2a5c3494064f1bb0bb6741185965801af2a0566db4485ed"
-  end
-  on_intel do
+    sha256 "2235711fbbee562abe174925072d5dd2f011081f53b99a38b5473b3dc9e97b9e"
+  else
     url "https://demur.moverq.dev/dl/demurd-darwin-amd64"
-    sha256 "6ab50df0a6fc4cbc653502896029626339f5347ef7e0f1a513ba775bfefe11f4"
+    sha256 "b1383640244c28b00adfded598f3063e306b627e978d2bdba5d34cdd19fe5ab2"
   end
+
+  depends_on :macos
+  depends_on "sing-box"
 
   def install
     bin.install Dir["demurd-darwin-*"].first => "demurd"
@@ -32,7 +33,7 @@ class Demur < Formula
 
   test do
     # The daemon prints its version and exits cleanly.
-    assert_predicate bin/"demurd", :exist?
+    assert_path_exists bin/"demurd"
     system bin/"demurd", "version"
   end
 end

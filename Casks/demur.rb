@@ -1,6 +1,6 @@
 cask "demur" do
-  version "0.1.0"
-  sha256 "2643566067348da0ccd2853a66b27ed7ac38b376abc2663b17fca5e2f0dface4"
+  version "0.2.0"
+  sha256 "48bb10cde604c7b588c66e82329d3b1013db6f73ebad1bff177493b596ac5cef"
 
   url "https://demur.moverq.dev/dl/Demur.dmg"
   name "Demur"
@@ -9,6 +9,7 @@ cask "demur" do
 
   # The client daemon and sing-box, installed by the formula.
   depends_on formula: "moverq1337/demur/demur"
+  depends_on macos: :sequoia
 
   app "Demur.app"
 
