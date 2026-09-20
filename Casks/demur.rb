@@ -13,13 +13,19 @@ cask "demur" do
 
   app "Demur.app"
 
-  caveats <<~CAVEATS
-    Клиент готов, но туннель поднимает служба demurd (нужен root).
-    Один раз настройте её своей подпиской:
+  # Приложение подписано ad-hoc: Apple Developer Program проект сознательно
+  # не покупает. Без снятия карантина Gatekeeper показал бы «не удалось
+  # проверить разработчика» и не дал запустить.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "/Applications/Demur.app"]
+  end
 
-      sudo demurd login https://cp.example.com/sub/ВАШ_ТОКЕН
+  caveats <<~CAVEATS
+    Туннель поднимает служба demurd, ей нужен root. Запустите её один раз:
+
       sudo brew services start moverq1337/demur/demur
 
-    Затем откройте Demur из Launchpad.
+    Затем откройте Demur — ключ доступа вводится в самом приложении.
   CAVEATS
 end
